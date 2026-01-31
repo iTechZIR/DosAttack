@@ -20,7 +20,7 @@ loop = int(input("please enter loop count number: ")) # get loop
 def set_user_agent():
     global headers
     with open("main\_user_agent_file_\__user_agent__.txt", "r", encoding='utf-8') as file: # open file user_agent
-        user_agent = file.readline() # read file
+        user_agent = [line.strip() for line in file.readlines() if line.strip()] # read file
         headers = {'User-Agent': random.choice(user_agent)} # choice user_agent
     
 # definition port
@@ -56,3 +56,4 @@ set_user_agent()
 set_port()
 status_code()
 dos_attack()
+
